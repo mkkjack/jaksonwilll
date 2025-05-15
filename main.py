@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import Arc
 import math
 
-def find_circle_intersection(h, x1, y1, r1, x2, y2, r2):
+def find_circle_intersection( x1, y1, r1, x2, y2, r2):
     """
     Находит точки пересечения двух окружностей
     """
@@ -12,7 +12,7 @@ def find_circle_intersection(h, x1, y1, r1, x2, y2, r2):
     print(f"Параметры окружности 1: центр=({x1}, {y1}), радиус={r1}")
     print(f"Параметры окружности 2: центр=({x2}, {y2}), радиус={r2}")
     print(f"Расстояние между центрами (d): {d}")
-    if h > r1 + r2 or h < abs(r1 - r2):
+    if y1>y2:
         print(f"Окружности не пересекаются:")
         print(f"- Сумма радиусов: {r1 + r2}")
         print(f"- Разность радиусов: {abs(r1 - r2)}")
@@ -79,7 +79,7 @@ def draw_conductor(length, height, upper_radius, lower_radius):
     print(f"Нижняя окружность: ({lower_center_x}, {lower_center_y})")
 
     # Проверяем пересечение окружностей
-    intersections = find_circle_intersection(height,
+    intersections = find_circle_intersection(
         upper_center_x, upper_center_y, upper_radius,
         lower_center_x, lower_center_y, lower_radius
     )
@@ -203,7 +203,7 @@ def draw_conductor(length, height, upper_radius, lower_radius):
 
 # Пример использования функции с тестовыми значениями
 length = 100  # длина проводника
-height = 40   # высота проводника
+height = 10   # высота проводника
 upper_radius = 20  # радиус верхнего закругления
 lower_radius = 30 # радиус нижнего закругления
 
